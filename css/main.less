@@ -1,6 +1,7 @@
 /*====================
   CSS VAR
 =====================*/
+// если элимент, к оторому применили этот миксин, пуст , он скрываеться
 .overlay-blok () {
   position: absolute;
   top: 0;
@@ -8,12 +9,16 @@
   left: 0;
   right: 0;
 }
+
+//добовление иконки в base64
 .base64 (@src , @vertical:center , @horizontal:center, @width:100%, @height:100%) {
   background-image: url(@src);
   background-position: @vertical @horizontal;
   background-repeat: no-repeat;
   background-size: @width @height;
 }
+
+//выравнивание по вертикали и горизонтали любого абсолютно позиционированного элимента
 .absolut-center (@width, @heaight) {
   position : absolute;
   width    : @width;
@@ -27,7 +32,7 @@
   -webkit-box-sizing: border-box;
 }
 
-.i-ellipsis () {
+.i-ellipsis {
   white-space: nowrap;
   display: inline-block;
   text-overflow: ellipsis;
