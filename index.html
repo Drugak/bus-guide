@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Расписание маршруток</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <script async src="js/angular.min.js"></script>
+        <script async src="js/main.js"></script>
+    </head>
+    <body>
+        <div id="loading-page" class="loading-page">
+            <span>Ждем маршутос.....</span>
+        </div>
+        <header id="header" class="clr">
+            <span class="left">назад</span>
+            <span class="right">все маршруты</span>
+        </header>
+        <section>
+            <div id="result-page">
+                <div class="my-location">
+                    Вознисенский периулок
+                </div>
+                <p class="promo-text">
+                    Ниже приведен список маршруток которые проходят вблизи от вас.
+                    Примерно <var>30</var> маршруток
+                </p>
+
+                <ul id="list-bus">
+
+                    <!-- отображение блока маршрутки -->
+                    <li class="bus-item">
+                        <var class="number-bus">
+                            148
+                        </var>
+                        <div class="info-box">
+                            <div class="short-info">
+                                <span class="from">Дерибасовская стрит</span>
+                                <span class="to">Заболотного бичь</span>
+                            </div>
+                            <div class="medium-info"></div>
+                        </div>
+                    </li>
+                    <!-- отображение блока маршрутки -->
+
+                    <!-- отображение блока маршрутки в развернтом виде-->
+                    <li class="bus-item active">
+                        <var class="number-bus">
+                            148
+                        </var>
+                        <div class="info-box">
+                            <div class="short-info">
+                                <span class="from">Дерибасовская стрит</span>
+                                <span class="to">Заболотного бичь</span>
+                            </div>
+                        </div>
+                        <div class="medium-info">
+                            <ul>
+                                <li>
+                                    <span class="info-title">
+                                        Время работы:
+                                    </span>
+                                    <br/>
+                                    <var class="info-list-item">
+                                        05:00-13:00
+                                    </var>
+                                </li>
+                                <li>
+                                    <span class="info-title">
+                                       Количество машин:
+                                    </span>
+                                    <br/>
+                                    <var class="info-list-item">
+                                        4 (вых.5)
+                                    </var>
+                                </li>
+                                <li>
+                                    <span class="info-title">
+                                       Количество машин:
+                                    </span>
+                                    <br/>
+                                    <var class="info-list-item">
+                                        4 (вых.5)
+                                    </var>
+                                </li>
+                                <li>
+                                    <span class="info-title">
+                                       Количество рейсов:
+                                    </span>
+                                    <br/>
+                                    <var class="info-list-item">
+                                        12 (вых.12)
+                                    </var>
+                                </li>
+                                <li>
+                                    <span class="info-title">
+                                       Длена рейса:
+                                    </span>
+                                    <br/>
+                                    <var class="info-list-item">
+                                        27км
+                                    </var>
+                                </li>
+                                <li>
+                                    <span class="info-title">
+                                       Время на один рейс:
+                                    </span>
+                                    <br/>
+                                    <var class="info-list-item">
+                                        90 мин
+                                    </var>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- отображение блока маршрутки -->
+                </ul>
+            </div>
+        </section>
+        <footer class="footer">
+            <time>10:34:2</time>
+        </footer>
+    </body>
+</html>
