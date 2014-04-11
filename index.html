@@ -33,6 +33,7 @@
                     <input ng-model="query" placeholder="Поиск" type="text"/>
                 </div>
                 <ul id="list-bus">
+
                     <!-- отображение блока маршрутки в развернтом виде-->
                     <li ng-repeat="bus in buses | filter:query" class="bus-item active">
                         <var class="number-bus">
@@ -104,6 +105,7 @@
                         </div>
                     </li>
                     <!-- отображение блока маршрутки -->
+
                 </ul>
             </div>
         </section>
