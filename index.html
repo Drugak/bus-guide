@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+<html ng-app>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,9 @@
         <link rel="stylesheet" href="css/normalize.css">
         <script async src="js/angular.min.js"></script>
         <script async src="js/main.js"></script>
+        <script async src="js/controller/controllers.js"></script>
     </head>
-    <body>
+    <body  ng-controller="BusList">
         <div id="loading-page" class="loading-page">
             <span>Ждем маршутос.....</span>
         </div>
@@ -25,30 +27,16 @@
                 </div>
                 <p class="promo-text">
                     Ниже приведен список маршруток которые проходят вблизи от вас.
-                    Примерно <var>30</var> маршруток
+                    Примерно <var>{{buses.length}}</var> маршруток
                 </p>
-
+                <div class="search-box">
+                    <input ng-model="query" placeholder="Поиск" type="text"/>
+                </div>
                 <ul id="list-bus">
-
-                    <!-- отображение блока маршрутки -->
-                    <li class="bus-item">
-                        <var class="number-bus">
-                            148
-                        </var>
-                        <div class="info-box">
-                            <div class="short-info">
-                                <span class="from">Дерибасовская стрит</span>
-                                <span class="to">Заболотного бичь</span>
-                            </div>
-                            <div class="medium-info"></div>
-                        </div>
-                    </li>
-                    <!-- отображение блока маршрутки -->
-
                     <!-- отображение блока маршрутки в развернтом виде-->
-                    <li class="bus-item active">
+                    <li ng-repeat="bus in buses | filter:query" class="bus-item active">
                         <var class="number-bus">
-                            148
+                            {{bus.number}}
                         </var>
                         <div class="info-box">
                             <div class="short-info">
