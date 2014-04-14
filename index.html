@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/test.css">
         <script async src="js/angular.min.js"></script>
         <script async src="js/main.js"></script>
         <script async src="js/controller/controllers.js"></script>
@@ -35,12 +36,12 @@
                 <ul id="list-bus">
 
                     <!-- отображение блока маршрутки в развернтом виде-->
-                    <li ng-repeat="bus in buses | filter:query" class="bus-item active">
+                    <li ng-repeat="bus in buses | filter:query" data-flex-grow="3" class="bus-item active">
                         <var class="number-bus">
                             {{bus.number}}
                         </var>
                         <div class="info-box">
-                            <div class="short-info">
+                            <div class="short-info" data-flex-grow="2">
                                 <span class="from">Дерибасовская стрит</span>
                                 <span class="to">Заболотного бичь</span>
                             </div>

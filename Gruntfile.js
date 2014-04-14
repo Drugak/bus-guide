@@ -47,12 +47,12 @@ module.exports = function (grunt) {
 
         cssmin: {
             css: {
-                src: ['css/normalize.css', 'css/test.css'],
+                src: ['css/normalize.css', 'css/test.less'],
                 dest: 'dest/style.min.css'
 
             }                                                          ,
     css2:{
-            src: ['css/normalize.css', 'css/test.css'],
+            src: ['css/normalize.css', 'css/test.less'],
             dest: 'dest/style2.min.css'
 
         }

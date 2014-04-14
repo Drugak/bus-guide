@@ -10,6 +10,7 @@
   right: 0;
 }
 
+
 //добовление иконки в base64
 .base64 (@src , @vertical:center , @horizontal:center, @width:100%, @height:100%) {
   background-image: url(@src);
@@ -39,7 +40,6 @@
   overflow: hidden;
 }
 
-
 .header-footer-style (@padding ) {
   font-size: @font-size14;
   position: absolute;
@@ -53,6 +53,7 @@
   box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 3px 4px -3px rgba(0,0,0,.3);
   -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 3px 4px -3px rgba(0,0,0,.3);
 }
+
 
 .text-style () {
   color: #999a;
@@ -86,15 +87,60 @@
   display:block;
 }
 
-.flex () {
+@values: attr(data-flex-grow);
+
+.olo () {
+  &:before {
+	content:@values;
+  }
+}
+  /* flex loyaut construktor */
+
+.flex (@flow1:row ,
+		@flow2:wrap,
+		@justify:flex-start,
+		@align-items:stretch,
+		@align-content:center
+	  ) {
+
+  @test2: 2;
+
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 
-  -webkit-flex-flow: row wrap;
+  -webkit-flex-flow: @flow1 @flow2;
+  -moz-flex-flow: @flow1 @flow2;
+  flex-flow: @flow1 @flow2;
+
+  justify-content:@justify;
+  -moz-justify-content:@justify;
+  -webkit-justify-content:@justify;
+
+  align-items:@align-items;
+  -moz-align-items:@align-items;
+  -webkit-align-items:@align-items;
+
+  align-content:@align-content;
+  -moz-align-content:@align-content;
+  -webkit-align-content:@align-content;
+
+//	flex-grow: e(.olo);
+//   & when (isnumber(@test2)) {
+//	 background-color: #000;
+//   }
+  .olo();
+   .hui:extend(.olo) {
+	 flex-grow:@values;
+   }
+
 }
+
+
+
+/* end flex loyaut construktor */
 
 .mono-vertical-align () {
   display: inline-block;
@@ -239,7 +285,8 @@ section {
     background-color: #fff;
     .box-shadow;
     .i-ellipsis;
-    .flex;
+    .flex();
+
 
     .number-bus {
       width: 5em;
