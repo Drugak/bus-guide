@@ -6,16 +6,26 @@ And some brief project description
 
 
 
-=== Installation === 
+=== Prerequisites ===
 
-
-1. install node, npm and grunt:
-
+The only necessary thing as prerequisite is to have installed at least the
+version 0.9.0 of nodejs.
 
 ```
-sudo apt-get install node npm 
-sudo node install -g grunt-cli
+$:> sudo apt-get install node npm
 ```
+
+When nodejs is installed, it’s possible to install the grunt command line interface via npm:
+
+```
+$:> npm uninstall -g grunt
+// remove previous global installation of grunt
+
+$:> npm install -g grunt-cli
+// install grunt-cli
+```
+
+
 
 2. Install project dependencies:
 
@@ -23,3 +33,8 @@ sudo node install -g grunt-cli
 npm install
 ```
 
+3. Minify/uglify/etc
+
+```
+grunt 
+```
