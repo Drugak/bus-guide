@@ -25,8 +25,29 @@ var extend  = require('node.extend');
  */
 
 module.exports = function ( grunt) {
+    var splitAndTrimRoute = function(route) {
+        route = route.split(',');
+        for ( var i=0; i<route.length; i++) route[i] = route[i].trim();
+        return route;
+    };
+    function parseNumberOfTrips( numberOfTrips) {
+        /*
+         * examples: 15(15) в птн. 3; 200 (180/160)  ;60/60 12
+         */
+        //numberOfTrips = "60/60\n12";
+        numberOfTrips = numberOfTrips.split("\n")[0];
+        //numberOfTrips = numberOfTrips.replace(/\s+/g, '').match( /(\d+)(?:\(|\/)(\d+)/);
+        numberOfTrips = numberOfTrips.replace(/\s+/g, '').match( /(\d+|-)(?:\(|\/)((?:\d+|-))/);
+        return {
+            workdays : numberOfTrips[1] == "-" ? null : numberOfTrips[1],
+            weekdays : numberOfTrips[2] == "-" ? null : numberOfTrips[2]
+        };
+
+    }
+
     var columnTransformations = [
         function(routeNumber) { // the Route number aka '№ маршр. '. Column #2, example data: 108а
+
             return {
                 "routeNumber" : routeNumber
             };
@@ -86,21 +107,58 @@ module.exports = function ( grunt) {
             return result;
         },
         function (routeName) {
+            //console.log(["routeName", routeName.trim()]);
             return {
-                routeName: routeName
+                routeName: routeName.trim()
             };
         },
         function (directRoute) {
             return {
-                directRoute : directRoute.split(",")
+                directRoute : splitAndTrimRoute(directRoute)
             };
         },
         function (reverseRoute) {
             return {
-                reverseRoute : reverseRoute.split(",")
+                reverseRoute : splitAndTrimRoute(reverseRoute)
             };
+        },
+        function (routeTimes) {
+            // Время нач. и оконч. работы маршрута
+            routeTimes = routeTimes.replace('–', '-');
+            return {
+                startRouteTime : routeTimes.split("-")[0].replace('.', ':'),
+                endRouteTime   : routeTimes.split("-")[1].replace('.', ':')
+            };
+        },
+        function (numberOfDirectTrips) { // количество выездов раб. (вых.)
+            return {
+                directTrips: parseNumberOfTrips(numberOfDirectTrips)
+            };
+        },
+        function (numberOfReverseTrips) {
+            /**
+             * Кол-во оборотных рейсов Раб. (Вых.)
+             */
+            return {
+                reverseTrips : parseNumberOfTrips(numberOfReverseTrips)
+            };
+        },
+        function  (str) {
+            // str = "63,3 км";
+            return {
+                routeLengthInKM: str.replace(',', '.').replace(/\s+км/ig, '') * 1.0
+            };
+        },
+        function routeDuration (str) {
+            // Время оборотн.  рейса по паспорту
+            // 95 мин
+            var res = {
+                routeDurationInMinutes : str.replace(/\s+мин/ig, '') * 1.0
+            };
+            res.routeDurationInHours = res.routeDurationInMinutes / 60;
+            res.routeDuration  = res.routeDurationInMinutes * 60; // in seconds
+            return res;
         }
-
     ] ;
     grunt.registerTask('csvparser',
         'A sample task which parse CSV with official reply of Odessa Transport Department ',
@@ -140,7 +198,7 @@ module.exports = function ( grunt) {
 
                             theRoute = extend(true, theRoute, property);
                         }
-                        console.log(JSON.stringify(theRoute));
+                        //console.log(JSON.stringify(theRoute));
                         return theRoute;
                     })
                     .on('record', function(row, index) {
