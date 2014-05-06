@@ -66,6 +66,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 
+    // include all tasks from this projects (in /tasks/ directory)
+    grunt.loadTasks('tasks');
+
     // регистрируем задачу
     grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);
+
+
 };
