@@ -163,18 +163,20 @@ module.exports = function ( grunt) {
     grunt.registerTask('csvparser',
         'A sample task which parse CSV with official reply of Odessa Transport Department ',
         function(pathToCsv) {
-            if ( arguments.length == 0 ) {
+            if ( arguments.length <2 ) {
                 grunt.log.error(this.name + " error: not enough arguments. ");
-                grunt.log.error("Usage: grunt " + this.name + " [path-to-csvfile]  ");
+                grunt.log.error("Usage: grunt " + this.name + ":[path-to-source-csvfile]:path-to-output-json");
                 return false;
             }
-            var filepath = arguments[0];
+            var filepath   = arguments[0];
+            var outputpath = arguments[1];
             var done = this.async();
 
             var rownumber = 0;
+            var output = [];
             setTimeout(function() {
                 csv().from.stream(fs.createReadStream(filepath))
-                    .to.path(__dirname + '/../data/route-network.json')
+//                    .to.path(__dirname + '/../data/route-network.json')
                     .transform(function(row) {
                         rownumber++;
                         if (rownumber==1 ) return null; // skip first line ( headings)
@@ -199,13 +201,16 @@ module.exports = function ( grunt) {
                             theRoute = extend(true, theRoute, property);
                         }
                         //console.log(JSON.stringify(theRoute));
-                        return theRoute;
+                        output.push(theRoute);
+                        return  true;
                     })
                     .on('record', function(row, index) {
                         //grunt.log.debug('#' + index + ' ' + JSON.stringify(row));
                     })
                     .on('end', function(count) {
-                        grunt.log.debug('Processed ' + count + ' lines of csv doc' );
+
+                        var writeStream = fs.createWriteStream(outputpath);
+                        writeStream.write(JSON.stringify(output));
                         done(true);
                     })
                     .on('error', function(error){
