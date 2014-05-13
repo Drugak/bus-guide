@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                 src: ['css/normalize.css', 'css/test.less'],
                 dest: 'dest/style.min.css'
 
-            }                                                          ,
+            },
     css2:{
             src: ['css/normalize.css', 'css/test.less'],
             dest: 'dest/style2.min.css'
@@ -70,7 +70,7 @@ module.exports = function (grunt) {
     grunt.loadTasks('tasks');
 
     // регистрируем задачу
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
 
 
 };

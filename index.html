@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<html ng-app>
+<html ng-app="busRoutApp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/test.css">
-        <script async src="js/angular.min.js"></script>
-        <script async src="js/main.js"></script>
-        <script async src="js/controller/controllers.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/controller/controllers.js"></script>
     </head>
-    <body  ng-controller="BusList">
+    <body  ng-controller="busRoutController">
         <div id="loading-page" class="loading-page">
             <span>Ждем маршутос.....</span>
         </div>
@@ -30,7 +29,7 @@
                     Ниже приведен список маршруток которые проходят вблизи от вас.
                     Примерно <var>{{buses.length}}</var> маршруток
                 </p>
-                <div class="search-box">
+                <div data-type="text" class="search-box search-item">
                     <input ng-model="query" placeholder="Поиск" type="text"/>
                 </div>
                 <ul id="list-bus">
@@ -38,15 +37,16 @@
                     <!-- отображение блока маршрутки в развернтом виде-->
                     <li ng-repeat="bus in buses | filter:query" data-flex-grow="3" class="bus-item active">
                         <var class="number-bus">
-                            {{bus.number}}
+                            {{bus.routeNumber}}
                         </var>
                         <div class="info-box">
                             <div class="short-info" data-flex-grow="2">
-                                <span class="from">Дерибасовская стрит</span>
-                                <span class="to">Заболотного бичь</span>
+                                <!--<span class="from">Дерибасовская стрит</span>-->
+                                <!--<span class="to">Заболотного бичь</span>-->
+                                <span class="name">{{bus.routeName}}</span>
                             </div>
                         </div>
-                        <div class="medium-info">
+                        <div class="medium-info i-none">
                             <ul>
                                 <li>
                                     <span class="info-title">

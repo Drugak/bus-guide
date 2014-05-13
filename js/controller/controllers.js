@@ -1,13 +1,11 @@
 /**
  * Created by vitaliydrugak on 11.04.14.
  */
-function BusList ($scope) {
-    $scope.buses = [
-        {
-            'number': '7'
-        },
-        {
-            'number': '150'
-        }
-    ];
-}
+var busRoutApp = angular.module('busRoutApp', []);
+
+busRoutApp.controller('busRoutController', function ($scope, $http){
+    $http.get('data/route.json').success(function(data){
+        $scope.buses = data;
+        console.log($scope.buses);
+    });
+});

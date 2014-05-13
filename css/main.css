@@ -26,6 +26,9 @@
 }
 /* flex loyaut construktor */
 /* end flex loyaut construktor */
+.i-none {
+  display: none;
+}
 /*====================
   END CSS VAR
 =====================*/
@@ -179,12 +182,6 @@ section .promo-text {
   -moz-align-content: center;
   -webkit-align-content: center;
 }
-.bus-item:before {
-  content: attr(data-flex-grow);
-}
-.bus-item .hui {
-  flex-grow: attr(data-flex-grow);
-}
 .bus-item .number-bus {
   width: 5em;
   height: 5em;
@@ -200,6 +197,12 @@ section .promo-text {
   height: 100%;
   margin-left: -0.4em;
   vertical-align: middle;
+}
+.bus-item .info-box {
+  font-size: 1.2em;
+  flex: 1;
+  -moz-flex: 1;
+  -webkit-flex: 1;
 }
 .bus-item .from,
 .bus-item .to {
@@ -221,6 +224,7 @@ section .promo-text {
 }
 .bus-item .short-info {
   padding: 0.4em;
+  white-space: normal;
 }
 .bus-item .medium-info {
   width: 100%;
@@ -260,3 +264,10 @@ footer {
 /*===================
 footer style
 ===================*/
+.search-item {
+  -webkit-appearance: none;
+  border: none;
+}
+.search-item:after {
+  content: attr(data-type);
+}

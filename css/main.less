@@ -87,13 +87,6 @@
   display:block;
 }
 
-@values: attr(data-flex-grow);
-
-.olo () {
-  &:before {
-	content:@values;
-  }
-}
   /* flex loyaut construktor */
 
 .flex (@flow1:row ,
@@ -102,8 +95,6 @@
 		@align-items:stretch,
 		@align-content:center
 	  ) {
-
-  @test2: 2;
 
   display: -webkit-box;
   display: -moz-box;
@@ -127,18 +118,17 @@
   -moz-align-content:@align-content;
   -webkit-align-content:@align-content;
 
-//	flex-grow: e(.olo);
-//   & when (isnumber(@test2)) {
-//	 background-color: #000;
-//   }
-  .olo();
-   .hui:extend(.olo) {
-	 flex-grow:@values;
-   }
-
 }
 
+.RestElementsForm () {
+  -webkit-appearance:none;
+  border: none;
 
+  &:after{
+	  content: (attr(data-type));
+
+	}
+}
 
 /* end flex loyaut construktor */
 
@@ -175,6 +165,10 @@
     .i-none;
   }
 }
+
+.i-none {
+ .i-none;
+};
 /*====================
   END CSS VAR
 =====================*/
@@ -296,7 +290,12 @@ section {
       text-align: center;
       .mono-vertical-align;
     }
-
+    .info-box {
+      font-size: @font-size12;
+      flex: 1;
+      -moz-flex: 1;
+      -webkit-flex: 1;
+    }
     .from,
     .to {
       display: block;
@@ -314,6 +313,7 @@ section {
 
     .short-info {
       padding: 0.4em;
+      white-space: normal;
     }
 
     .medium-info {
@@ -349,3 +349,7 @@ footer {
 /*===================
 footer style
 ===================*/
+
+.search-item {
+    .RestElementsForm;
+}
