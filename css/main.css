@@ -55,7 +55,7 @@ body {
   overflow-scrolling: touch;
   background-color: #F6F5F3;
   position: relative;
-  padding: 4em 0;
+  padding: 1em 0 4em;
 }
 /*====================
 end defolt style
@@ -72,6 +72,7 @@ LOADING SKRIN
   right: 0;
   background-color: #363942;
   color: #fff;
+  z-index: 1;
 }
 .loading-page:before {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABOCAQAAAD28+LOAAADX0lEQVR4Ae3bXYhU5R/A8c+cnXVxZdc/Gej24nuFQkUapKGhWCZGSK8QikbkRQSR4cVSG9GmoVgQRlBBWWyGFkRZZkphUmbeuERq8V+16MK0DNOUxc11AmFhd3TOPuOzzowwn7mf+c75nd/DXJzJCJRrcqeZxrtORrz9Dthpg/2CZHICjPeUew030E76zCu+Jz6zxmOed5mLpdvLljselznO225zse31qB1SJNI02VSCSCbaaPKFXs2hvjJZuqXahWjQpkGaw251QAFZhb3ZbyTf2SFEnS7phltvhpPFDn2hB/VvsDBDZPTnZi0Ul/k/y5TeEuOKy5zraiFOCHNMTv/qPFzcvblImMfNFWKweiEWeFFnaOaVpgqz0MAaZYqtoUO/RYPyyLiB0MwxymdSeOZQ5TM6fIXO6PG7n5TCGGMAp4My82y0WCk8Y5kUiXQ1SqNWqkRlufQzG008+xqistSZcLZrOFlTtRkFZtuqkoy1SxZHLMl6w7gKvQEy6mQwwqrEaD1yKk03oCHxr8rXXT2QilXNrGZWM6uZicqXSZxR+WoSq/TIVlqcLGBt1grtpoIOleWQ5yT4v3VZbLZZJfpT6yW36dXMamY1s5rZrTROS5WVbpiJSqEpLnOeuythqtky/tCrbnq8auYWj5jlDk/aZ2D8YaW7zHKfdwXI6l+zlYAvrfOOOWLtcY8OwEe2WGNQ7NVcYyV6HLZAhzjHzO/zHu9rJi6zU6u+/rJCnDY/6Os1P8dl7vKrfDt0i/G5fF12xmWedK5uOTH+ca6uuMzx6uVrkohxvXNdEZc51nT5FkVmPiTfNWbGZbLa5XqbbYE40y3Ja1itPjbzWl+4XS1o9IQP1Ir1klZXASbZYM6FPSPX6ll97XVIYqyRBspRe3RpdKNavW0zIzSzxQvKZYN5oUP/Wvl8SGjmt95SHtuKyWSpj5XedoucCl8hyHjAPDeZIE27o0LUmqJWYb9o96n1OgnJzDffe9JMs12Ier8ZprAWy2POzUHS1QlTJ3MpPOuRESVROtXM7AB9zYwaaWriPuZHOYX9ba8wJxyUpiMuc6dNCmtzUJhTXlXYPp/EZeYsttv5faNZuNetdX5HLHQs/j8ZI6wyTaPeDtlomeOKUaPZ/UbqrdMuT9tNuv8AV7W2XAfFRgsAAAAASUVORK5CYII=');
@@ -182,6 +183,9 @@ section .promo-text {
   -moz-align-content: center;
   -webkit-align-content: center;
 }
+.bus-item.open .medium-info {
+  display: block;
+}
 .bus-item .number-bus {
   width: 5em;
   height: 5em;
@@ -227,6 +231,7 @@ section .promo-text {
   white-space: normal;
 }
 .bus-item .medium-info {
+  display: none;
   width: 100%;
   font-size: 1.2em;
   padding: .3em 1em;
@@ -249,6 +254,7 @@ section style
 footer style
 ===================*/
 footer {
+  z-index: 2;
   font-size: 1.4em;
   position: absolute;
   padding: 1em;
@@ -265,9 +271,25 @@ footer {
 footer style
 ===================*/
 .search-item {
+  padding: 0 0.5em;
+}
+.search-item input {
   -webkit-appearance: none;
   border: none;
+  outline: none;
+  padding-left: .3em;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  height: 3em;
+  border: groove #fff;
+  border-width: 0 0 2px 0;
+  background-color: transparent;
 }
-.search-item:after {
-  content: attr(data-type);
+.search-item input:active,
+.search-item input:focus {
+  outline: none;
+}
+.search-item input:after {
+  content: '';
 }

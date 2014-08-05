@@ -120,13 +120,17 @@
 
 }
 
-.RestElementsForm () {
+.RestElementsForm (@content:attr(data-type)) {
   -webkit-appearance:none;
   border: none;
+  outline: none;
+
+  &:active,&:focus {
+    outline: none;
+  }
 
   &:after{
-	  content: (attr(data-type));
-
+	  content: (@content);
 	}
 }
 
@@ -195,7 +199,7 @@ body {
   overflow-scrolling: touch;
   background-color: #F6F5F3;
   position: relative;
-  padding: 4em 0;
+  padding:1em 0 4em;
 }
 /*====================
 end defolt style
@@ -210,6 +214,7 @@ LOADING SKRIN
     .overlay-blok;
     background-color: @dark-color;
     color: #fff;
+    z-index: 1;
 
     &:before {
       .logo;
@@ -275,6 +280,11 @@ section {
 
   /* bus-syule */
   .bus-item {
+    &.open {
+      .medium-info {
+        display: block;
+      }
+    }
     margin: 1em 0.5em;
     background-color: #fff;
     .box-shadow;
@@ -317,6 +327,7 @@ section {
     }
 
     .medium-info {
+       display: none;
       .hide-void-block;
       width: 100%;
       font-size: @font-size12;
@@ -341,6 +352,7 @@ section style
 footer style
 ===================*/
 footer {
+  z-index: 2;
   .header-footer-style (1em);
   bottom: 0;
   background-color: @dark-color;
@@ -351,5 +363,15 @@ footer style
 ===================*/
 
 .search-item {
-    .RestElementsForm;
+  padding: 0 0.5em;
+  input {
+    .RestElementsForm(@content:'');
+    padding-left: .3em;
+    .box-siz;
+    width: 100%;
+    height: 3em;
+    border: groove #fff;
+    border-width: 0 0 2px 0;
+    background-color: transparent;
+  }
 }

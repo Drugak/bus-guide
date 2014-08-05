@@ -17,17 +17,18 @@
             <span>Ждем маршутос.....</span>
         </div>
         <header id="header" class="clr">
-            <span class="left">назад</span>
-            <span class="right">все маршруты</span>
+            <!--<span class="left">назад</span>-->
+            <!--<span class="right">все маршруты</span>-->
         </header>
         <section>
             <div id="result-page">
-                <div class="my-location">
+                <div class="my-location i-none">
                     Вознисенский периулок
                 </div>
                 <p class="promo-text">
-                    Ниже приведен список маршруток которые проходят вблизи от вас.
-                    Примерно <var>{{buses.length}}</var> маршруток
+                    Ниже приведен весь список маршруток.
+                    Примерно (<var>{{buses.length}}</var>). <br />
+                    Ниже строка поиска. Впишите туда номер маршрутки либо нужную остановку.
                 </p>
                 <div data-type="text" class="search-box search-item">
                     <input ng-model="query" placeholder="Поиск" type="text"/>
@@ -35,7 +36,14 @@
                 <ul id="list-bus">
 
                     <!-- отображение блока маршрутки в развернтом виде-->
-                    <li ng-repeat="bus in buses | filter:query" data-flex-grow="3" class="bus-item active">
+                    <li
+                        ng-repeat="bus in buses | filter:query"
+                        data-flex-grow="3"
+                        ng-class="{'js-bus-item': !isActive, 'js-bus-item open': isActive}"
+                        class="bus-item active"
+                        ng-init="isActive = false"
+                        ng-click="isActive = !isActive">
+
                         <var class="number-bus">
                             {{bus.routeNumber}}
                         </var>
@@ -46,7 +54,7 @@
                                 <span class="name">{{bus.routeName}}</span>
                             </div>
                         </div>
-                        <div class="medium-info i-none">
+                        <div class="medium-info">
                             <ul>
                                 <li>
                                     <span class="info-title">
@@ -54,7 +62,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        05:00-13:00
+                                        {{bus.startRouteTime}} -{{ bus.endRouteTime }}
                                     </var>
                                 </li>
                                 <li>
@@ -63,16 +71,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        4 (вых.5)
-                                    </var>
-                                </li>
-                                <li>
-                                    <span class="info-title">
-                                       Количество машин:
-                                    </span>
-                                    <br/>
-                                    <var class="info-list-item">
-                                        4 (вых.5)
+                                         {{ bus.reverseTrips.workdays }} ( вых. {{ bus.reverseTrips.weekdays }})
                                     </var>
                                 </li>
                                 <li>
@@ -86,11 +85,11 @@
                                 </li>
                                 <li>
                                     <span class="info-title">
-                                       Длена рейса:
+                                       Длина рейса:
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        27км
+                                        {{ bus.routeLengthInKM }}км
                                     </var>
                                 </li>
                                 <li>
@@ -99,7 +98,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        90 мин
+                                        {{ bus.routeDurationInMinutes }} мин
                                     </var>
                                 </li>
                             </ul>
