@@ -8,11 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.css">
-        <script src="js/angular.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/controller/controllers.js"></script>
     </head>
-    <body  ng-controller="busRoutController">
+    <body>
         <div id="loading-page" class="loading-page">
             <span>Ждем маршутос.....</span>
         </div>
@@ -27,31 +25,24 @@
                 </div>
                 <p class="promo-text">
                     Ниже приведен весь список маршруток.
-                    Примерно (<var>{{buses.length}}</var>). <br />
+                    Примерно (<var></var>). <br />
                     Ниже строка поиска. Впишите туда номер маршрутки либо нужную остановку.
                 </p>
                 <div data-type="text" class="search-box search-item">
-                    <input ng-model="query" placeholder="Поиск" type="text"/>
+                    <input placeholder="Поиск" type="text"/>
                 </div>
                 <ul id="list-bus">
 
                     <!-- отображение блока маршрутки в развернтом виде-->
-                    <li
-                        ng-repeat="bus in buses | filter:query"
-                        data-flex-grow="3"
-                        ng-class="{'js-bus-item': !isActive, 'js-bus-item open': isActive}"
-                        class="bus-item active"
-                        ng-init="isActive = false"
-                        ng-click="isActive = !isActive">
-
+                    <li data-flex-grow="3" class="bus-item active">
                         <var class="number-bus">
-                            {{bus.routeNumber}}
+                            40
                         </var>
                         <div class="info-box">
                             <div class="short-info" data-flex-grow="2">
                                 <!--<span class="from">Дерибасовская стрит</span>-->
                                 <!--<span class="to">Заболотного бичь</span>-->
-                                <span class="name">{{bus.routeName}}</span>
+                                <span class="name">10</span>
                             </div>
                         </div>
                         <div class="medium-info">
@@ -62,7 +53,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        {{bus.startRouteTime}} -{{ bus.endRouteTime }}
+                                        10 - 23:00
                                     </var>
                                 </li>
                                 <li>
@@ -71,7 +62,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                         {{ bus.reverseTrips.workdays }} ( вых. {{ bus.reverseTrips.weekdays }})
+                                         12 ( вых. 34)
                                     </var>
                                 </li>
                                 <li>
@@ -89,7 +80,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        {{ bus.routeLengthInKM }}км
+                                        22км
                                     </var>
                                 </li>
                                 <li>
@@ -98,7 +89,7 @@
                                     </span>
                                     <br/>
                                     <var class="info-list-item">
-                                        {{ bus.routeDurationInMinutes }} мин
+                                        90 мин
                                     </var>
                                 </li>
                             </ul>
