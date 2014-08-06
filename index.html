@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.css">
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/template.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -34,67 +36,7 @@
                 <ul id="list-bus">
 
                     <!-- отображение блока маршрутки в развернтом виде-->
-                    <li data-flex-grow="3" class="bus-item active">
-                        <var class="number-bus">
-                            40
-                        </var>
-                        <div class="info-box">
-                            <div class="short-info" data-flex-grow="2">
-                                <!--<span class="from">Дерибасовская стрит</span>-->
-                                <!--<span class="to">Заболотного бичь</span>-->
-                                <span class="name">10</span>
-                            </div>
-                        </div>
-                        <div class="medium-info">
-                            <ul>
-                                <li>
-                                    <span class="info-title">
-                                        Время работы:
-                                    </span>
-                                    <br/>
-                                    <var class="info-list-item">
-                                        10 - 23:00
-                                    </var>
-                                </li>
-                                <li>
-                                    <span class="info-title">
-                                       Количество машин:
-                                    </span>
-                                    <br/>
-                                    <var class="info-list-item">
-                                         12 ( вых. 34)
-                                    </var>
-                                </li>
-                                <li>
-                                    <span class="info-title">
-                                       Количество рейсов:
-                                    </span>
-                                    <br/>
-                                    <var class="info-list-item">
-                                        12 (вых.12)
-                                    </var>
-                                </li>
-                                <li>
-                                    <span class="info-title">
-                                       Длина рейса:
-                                    </span>
-                                    <br/>
-                                    <var class="info-list-item">
-                                        22км
-                                    </var>
-                                </li>
-                                <li>
-                                    <span class="info-title">
-                                       Время на один рейс:
-                                    </span>
-                                    <br/>
-                                    <var class="info-list-item">
-                                        90 мин
-                                    </var>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
                     <!-- отображение блока маршрутки -->
 
                 </ul>
@@ -103,5 +45,68 @@
         <footer class="footer">
             <time>10:34:2</time>
         </footer>
+        <script type="text/jstemplate" id="template-busItemWidget">
+            <li data-flex-grow="3" class="bus-item active">
+                <var class="number-bus">
+                    <%= routeNumber%>
+                </var>
+                <div class="info-box">
+                    <div class="short-info" data-flex-grow="2">
+                        <!--<span class="from">Дерибасовская стрит</span>-->
+                        <!--<span class="to">Заболотного бичь</span>-->
+                        <span class="name"><%= routeName %></span>
+                    </div>
+                </div>
+                <div class="medium-info">
+                    <ul>
+                        <li>
+                                    <span class="info-title">
+                                        Время работы:
+                                    </span>
+                            <br/>
+                            <var class="info-list-item">
+                                10 - 23:00
+                            </var>
+                        </li>
+                        <li>
+                                    <span class="info-title">
+                                       Количество машин:
+                                    </span>
+                            <br/>
+                            <var class="info-list-item">
+                                12 ( вых. 34)
+                            </var>
+                        </li>
+                        <li>
+                                    <span class="info-title">
+                                       Количество рейсов:
+                                    </span>
+                            <br/>
+                            <var class="info-list-item">
+                                12 (вых.12)
+                            </var>
+                        </li>
+                        <li>
+                                    <span class="info-title">
+                                       Длина рейса:
+                                    </span>
+                            <br/>
+                            <var class="info-list-item">
+                                22км
+                            </var>
+                        </li>
+                        <li>
+                                    <span class="info-title">
+                                       Время на один рейс:
+                                    </span>
+                            <br/>
+                            <var class="info-list-item">
+                                90 мин
+                            </var>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </script>
     </body>
 </html>
