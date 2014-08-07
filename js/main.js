@@ -1,9 +1,6 @@
-;
-
 var BusRoute;
 
 var busGuide = function () {
-
 // START download route.jsone
    var routeJson = function (){
        $.ajax("data/route.json" )
@@ -15,25 +12,16 @@ var busGuide = function () {
            }
        );
    };
-// END download route.jsone
-
-
 // START whrite route.jsone
     var whriteRoute = function (data) {
         localStorage.setItem('routeData', JSON.stringify(data));
         addBusRoute();
     };
-// END whrite route.jsone
-
-
 // BusRoute
     function addBusRoute(){
         BusRoute = JSON.parse(localStorage.getItem('routeData'));
         busItemWidget();
     }
-// BusRoute
-
-
 // START check localStoreg
     var checkLocalStoreg = function (){
         if (!localStorage.routeData){
@@ -43,13 +31,10 @@ var busGuide = function () {
         }
     };
     checkLocalStoreg();
-// END check localStoreg
 };
 
 
 //====================================================================================
-
-;
 // START render bus item html
     var busItemWidget = function (){
         var html = "";
@@ -58,8 +43,13 @@ var busGuide = function () {
             html += Bus.template("busItemWidget", BusRoute[i],true);
         };
         $('#list-bus').html(html);
+
+        // open item bus
+        $( "li.js-bus-item" ).click(function() {
+            $(this).toggleClass('open');
+        });
     };
-// END render bus item html
+
 
 $( document ).ready(function (){
     busGuide();

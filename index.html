@@ -42,11 +42,8 @@
                 </ul>
             </div>
         </section>
-        <footer class="footer">
-            <time>10:34:2</time>
-        </footer>
         <script type="text/jstemplate" id="template-busItemWidget">
-            <li data-flex-grow="3" class="bus-item active">
+            <li data-flex-grow="3" class="js-bus-item bus-item active">
                 <var class="number-bus">
                     <%= routeNumber%>
                 </var>
@@ -65,7 +62,7 @@
                                     </span>
                             <br/>
                             <var class="info-list-item">
-                                10 - 23:00
+                                <%= startRouteTime%> - <%= endRouteTime%>
                             </var>
                         </li>
                         <li>
@@ -74,7 +71,7 @@
                                     </span>
                             <br/>
                             <var class="info-list-item">
-                                12 ( вых. 34)
+                                <%= directTrips.workdays%> ( вых. <%= directTrips.weekdays%>)
                             </var>
                         </li>
                         <li>
@@ -83,7 +80,7 @@
                                     </span>
                             <br/>
                             <var class="info-list-item">
-                                12 (вых.12)
+                                <%= reverseTrips.workdays%> (вых.<%= reverseTrips.weekdays%>)
                             </var>
                         </li>
                         <li>
@@ -92,7 +89,7 @@
                                     </span>
                             <br/>
                             <var class="info-list-item">
-                                22км
+                                <%= routeLengthInKM%>км
                             </var>
                         </li>
                         <li>
@@ -101,7 +98,7 @@
                                     </span>
                             <br/>
                             <var class="info-list-item">
-                                90 мин
+                                <%= routeDurationInMinutes%> мин
                             </var>
                         </li>
                     </ul>
