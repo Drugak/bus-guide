@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Расписание маршруток</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1,user-scalable=0">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.css">
         <script src="js/jquery-2.1.1.min.js"></script>
@@ -28,10 +28,10 @@
                 <p class="promo-text">
                     Ниже приведен весь список маршруток.
                     Примерно (<var></var>). <br />
-                    Ниже строка поиска. Впишите туда номер маршрутки либо нужную остановку.
+                    Ниже строка поиска. Впишите туда номер маршрутки.
                 </p>
                 <div data-type="text" class="search-box search-item">
-                    <input placeholder="Поиск" type="text"/>
+                    <input placeholder="Поиск номеру маршрутки" class="js-search-input" type="text"/>
                 </div>
                 <ul id="list-bus">
 
@@ -43,7 +43,7 @@
             </div>
         </section>
         <script type="text/jstemplate" id="template-busItemWidget">
-            <li data-flex-grow="3" class="js-bus-item bus-item active">
+            <li data-flex-grow="3"  data-bus-number="<%= routeNumber%>" class="js-bus-item bus-item">
                 <var class="number-bus">
                     <%= routeNumber%>
                 </var>

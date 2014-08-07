@@ -27,7 +27,7 @@
 /* flex loyaut construktor */
 /* end flex loyaut construktor */
 .i-none {
-  display: none;
+  display: none !important;
 }
 /*====================
   END CSS VAR
@@ -239,7 +239,7 @@ section .promo-text {
   padding: .3em 1em;
 }
 .bus-item .medium-info:empty {
-  display: none;
+  display: none !important;
 }
 .bus-item li {
   border-bottom: 1px dotted rgba(153, 153, 153, 0.38);

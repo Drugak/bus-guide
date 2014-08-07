@@ -31,10 +31,6 @@ var busGuide = function () {
         }
     };
     checkLocalStoreg();
-};
-
-
-//====================================================================================
 // START render bus item html
     var busItemWidget = function (){
         var html = "";
@@ -49,6 +45,20 @@ var busGuide = function () {
             $(this).toggleClass('open');
         });
     };
+
+// search
+    var search = function () {
+        $('li.js-bus-item').addClass('i-none');
+    };
+
+    $('.js-search-input').on('focus', function (){
+        search();
+    });
+};
+
+
+//====================================================================================
+
 
 
 $( document ).ready(function (){
