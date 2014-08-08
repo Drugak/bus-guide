@@ -252,6 +252,19 @@ section .promo-text {
 /*===================
 section style
 ===================*/
+.search-box {
+  position: relative;
+}
+.search-box .cancel-search {
+  position: absolute;
+  background-color: #999;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  right: 0;
+  top: 0;
+  padding: 2px 5px;
+  cursor: pointer;
+}
 .search-item {
   padding: 0 0.5em;
 }
