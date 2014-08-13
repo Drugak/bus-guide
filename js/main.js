@@ -49,58 +49,42 @@ var busGuide = function () {
 
 
 // search
-    var search = function () {
-        var $jsBusItem = $('li.js-bus-item'),
-            $jsCancelSearch = $('.js-cancel-search');
+    function search () {
+        var $jsBusItem = $('.js-bus-item'),
+            $jsCancelSearch = $('.js-cancel-search'),
+            $jsSearchInput = $('.js-search-input'),
+            $jsCancelSearch = $('.js-cancel-search'),
+            busNumber;
 
+        $jsCancelSearch.toggleClass('i-none');
+        $jsBusItem.toggleClass('i-none');
 
-        $jsCancelSearch.removeClass('i-none');
-        $jsBusItem.addClass('i-none');
-
-
-        var searchItem = function (){
-            $("[data-bus-number='"+ 4/2 +"']").removeClass('i-none');
-        };
-
-        var changeSearch = function (){
-            var filter = $('input.js-search-input').val(),
-                count = 0;
-
-            var regex = new RegExp(filter, "i");
-            // Loop through the comment list
-            $(".commentlist li").each(function(){
-
-                // If the list item does not contain the text phrase fade it out
-                if ($(this).text().search(regex) < 0) {
-                    $(this).hide();
-
-                    // Show the list item if the phrase matches and increase the count by 1
-                } else {
-                    $(this).show();
-                    count++;
+        var runSearch = setInterval(function (){
+            (function (){
+                if ($jsSearchInput.val() == "") {
+                    return false;
                 }
-            });
+                busNumber = $jsSearchInput.val();
+                console.log(busNumber);
+            })();
+            $jsBusItem.addClass('i-none');
+            $("[data-bus-number=" + busNumber + "]").removeClass('i-none');
 
-        };
-
-
-
-        changeSearch();
-
-        //== cansel search
-        var canselSearch = function (){
+        },1000);
+        $jsCancelSearch.on('click', function (){
+            $jsSearchInput.val('');
+            $(this).addClass('i-none');
             $jsBusItem.removeClass('i-none');
-            $jsCancelSearch.addClass('i-none');
-        };
-    };
+            clearInterval(runSearch);
+        });
+
+    }
+
 
 
 
     $('input.js-search-input').on('focus', function (){
         search();
-    });
-    $('div.js-cancel-search').on('click', function (){
-        search.canselSearch();
     });
 };
 
