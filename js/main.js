@@ -56,8 +56,8 @@ var busGuide = function () {
             $jsCancelSearch = $('.js-cancel-search'),
             busNumber;
 
-        $jsCancelSearch.toggleClass('i-none');
-        $jsBusItem.toggleClass('i-none');
+        $jsCancelSearch.removeClass('i-none');
+        $jsBusItem.addClass('i-none');
 
         var runSearch = setInterval(function (){
             (function (){
@@ -65,12 +65,11 @@ var busGuide = function () {
                     return false;
                 }
                 busNumber = $jsSearchInput.val();
-                console.log(busNumber);
+                $jsBusItem.addClass('i-none');
+                $("[data-bus-number=" + busNumber + "]").removeClass('i-none');
             })();
-            $jsBusItem.addClass('i-none');
-            $("[data-bus-number=" + busNumber + "]").removeClass('i-none');
-
         },1000);
+
         $jsCancelSearch.on('click', function (){
             $jsSearchInput.val('');
             $(this).addClass('i-none');

@@ -376,3 +376,51 @@ section style
     background-color: transparent;
   }
 }
+
+/*===================
+loading
+===================*/
+#list-bus {
+  position: relative;
+  height: 100%;
+  &.loading{
+    &:after {
+      position: absolute;
+      content: "";
+      top: 30%;
+      left: 0.5em;
+      right: 0.5em;
+      height: 50px;
+      margin-top: -15px;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 3px 4px -3px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 3px 4px -3px rgba(0, 0, 0, 0.3);
+    }
+    &:before {
+      z-index: 10;
+      position: absolute;
+      margin-top: -15px;
+      content: "";
+      top: 30%;
+      left: 0.5em;
+      right: 0.5em;
+      width: 5em;
+      height: 5em;
+      background-color: #5C832F;
+      -webkit-animation: loading infinite 3s;
+      animation: loading infinite 3s;
+    }
+  }
+}
+
+@-webkit-keyframes loading {
+  0% {left: 0}
+  50% {right: 0; left: 100%}
+  100% {left: 0}
+}
+
+@keyframes loading {
+  0% {left: 0}
+  50% {right: 0; left: 100%}
+  100% {left: 0}
+}
