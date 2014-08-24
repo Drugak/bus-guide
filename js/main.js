@@ -39,7 +39,7 @@ var busGuide = function () {
         for (var i = 0; i < BusRoute.length; i++) {
             html += Bus.template("busItemWidget", BusRoute[i],true);
         };
-        $('#list-bus').html(html);
+        $('#list-bus').removeClass('loading').html(html);
 
         // open item bus
         $( "li.js-bus-item" ).click(function() {
@@ -78,13 +78,13 @@ var busGuide = function () {
         });
 
     }
-
-
-
-
     $('input.js-search-input').on('focus', function (){
         search();
     });
+
+
+// loading
+
 };
 
 
