@@ -1,6 +1,7 @@
 var busGuide = function () {
 
-    var BusRoute;
+    var BusRoute,
+        BusRouteTableArray = [];
 
 // START download route.jsone
    var routeJson = function (){
@@ -21,6 +22,12 @@ var busGuide = function () {
 // BusRoute
     function addBusRoute(){
         BusRoute = JSON.parse(localStorage.getItem('routeData'));
+
+        (function (){
+            for (var i = 0; i < BusRoute.length; i++){
+                BusRouteTableArray.push(BusRoute[i].routeNumber);
+            }
+        })();
         busItemWidget();
     }
 // START check localStoreg
@@ -33,7 +40,9 @@ var busGuide = function () {
     };
     checkLocalStoreg();
 // START render bus item html
+
     var busItemWidget = function (){
+
         var html = "";
 
         for (var i = 0; i < BusRoute.length; i++) {
@@ -61,7 +70,7 @@ var busGuide = function () {
 
         var runSearch = setInterval(function (){
             (function (){
-                if ($jsSearchInput.val() == "") {
+                if ($jsSearchInput.val() == "") {                                                  ч
                     return false;
                 }
                 busNumber = $jsSearchInput.val();
@@ -82,8 +91,7 @@ var busGuide = function () {
         search();
     });
 
-
-// loading
+    console.log(BusRouteTableArray);
 
 };
 
