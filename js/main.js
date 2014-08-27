@@ -1,7 +1,7 @@
-var busGuide = function () {
+var BusRoute,
+    BusRouteTableArray = [];
 
-    var BusRoute,
-        BusRouteTableArray = [];
+var busGuide = function () {
 
 // START download route.jsone
    var routeJson = function (){
@@ -22,7 +22,6 @@ var busGuide = function () {
 // BusRoute
     function addBusRoute(){
         BusRoute = JSON.parse(localStorage.getItem('routeData'));
-
         (function (){
             for (var i = 0; i < BusRoute.length; i++){
                 BusRouteTableArray.push(BusRoute[i].routeNumber);
@@ -58,44 +57,24 @@ var busGuide = function () {
 
 
 // search
-    function search () {
+    function search (){
         var $jsBusItem = $('.js-bus-item'),
-            $jsCancelSearch = $('.js-cancel-search'),
-            $jsSearchInput = $('.js-search-input'),
-            $jsCancelSearch = $('.js-cancel-search'),
-            busNumber;
-
-        $jsCancelSearch.removeClass('i-none');
-        $jsBusItem.addClass('i-none');
-
-        var runSearch = setInterval(function (){
-            (function (){
-                if ($jsSearchInput.val() == "") {                                                  ч
-                    return false;
-                }
-                busNumber = $jsSearchInput.val();
-                $jsBusItem.addClass('i-none');
-                $("[data-bus-number=" + busNumber + "]").removeClass('i-none');
-            })();
-        },1000);
-
-        $jsCancelSearch.on('click', function (){
-            $jsSearchInput.val('');
-            $(this).addClass('i-none');
-            $jsBusItem.removeClass('i-none');
-            clearInterval(runSearch);
+            $jsSearchInput = $('.js-search-input')
+        $jsSearchInput.keyup(function (){
+            if ($jsSearchInput.val() == "") {
+                return false;
+            }
+            console.log($.inArray($jsSearchInput.val() , BusRouteTableArray));
         });
+    };
 
-    }
     $('input.js-search-input').on('focus', function (){
         search();
     });
 
-    console.log(BusRouteTableArray);
+
 
 };
-
-
 //====================================================================================
 
 
