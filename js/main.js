@@ -58,13 +58,21 @@ var busGuide = function () {
 
 // search
     function search (){
-        var $jsBusItem = $('.js-bus-item'),
-            $jsSearchInput = $('.js-search-input')
+        var $jsSearchInput = $('.js-search-input'),
+            currentSearch;
+
         $jsSearchInput.keyup(function (){
+            $('#list-bus li').addClass('i-none');
+
             if ($jsSearchInput.val() == "") {
                 return false;
             }
-            console.log($.inArray($jsSearchInput.val() , BusRouteTableArray));
+            currentSearch = $.inArray($jsSearchInput.val() , BusRouteTableArray) + 1;
+
+//            console.log(currentSearch,'======',$("#list-bus li:nth-child("+ currentSearch +")"));
+
+            $("#list-bus li:nth-child("+ currentSearch +")").removeClass('i-none');
+
         });
     };
 
