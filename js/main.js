@@ -19,28 +19,19 @@ var busGuide = function () {
         localStorage.setItem('routeData', JSON.stringify(data));
         addBusRoute();
     };
-// BusRoute
-    function addBusRoute(){
-        BusRoute = JSON.parse(localStorage.getItem('routeData'));
-        (function (){
-            for (var i = 0; i < BusRoute.length; i++){
-                BusRouteTableArray.push(BusRoute[i].routeNumber);
-            }
-        })();
-        busItemWidget();
-    }
+
 // START check localStoreg
     var checkLocalStoreg = function (){
         if (!localStorage.routeData){
             routeJson();
         } else {
-            routeJson();
+            addBusRoute();
         }
     };
     checkLocalStoreg();
 // START render bus item html
 
-    var busItemWidget = function (){
+   function busItemWidget (){
 
         var html = "";
 
@@ -55,6 +46,16 @@ var busGuide = function () {
         });
     };
 
+// BusRoute
+    function addBusRoute(){
+        BusRoute = JSON.parse(localStorage.getItem('routeData'));
+        (function (){
+            for (var i = 0; i < BusRoute.length; i++){
+                BusRouteTableArray.push(BusRoute[i].routeNumber);
+            }
+        })();
+        busItemWidget();
+    }
 
 // search
     function search (){
