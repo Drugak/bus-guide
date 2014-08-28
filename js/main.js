@@ -60,10 +60,19 @@ var busGuide = function () {
 // search
     function search (){
         var $jsSearchInput = $('.js-search-input'),
+            $jsCanselSearch = $('.js-cancel-search'),
             currentSearch;
 
+            $jsCanselSearch.on('click', function (){
+                $('#list-bus > li').removeClass('i-none');
+                $(this).addClass('i-none');
+                $jsSearchInput.val('');
+            });
+
         $jsSearchInput.keyup(function (){
-            $('#list-bus li').addClass('i-none');
+            $('#list-bus > li').addClass('i-none');
+            $jsCanselSearch.removeClass('i-none');
+
 
             if ($jsSearchInput.val() == "") {
                 return false;
