@@ -1,0 +1,1 @@
+var test=function(a){{var b={selector:a.slice(1),searchIdSelector:function(){return document.getElementById(b.selector)},searchClassSelector:function(){return document.getElementsByClassName(b.selector)}};!function(){"#"==a.charAt(0)?b.searchIdSelector(b.selector):"."==a.charAt(0)&&b.searchClassSelector(b.selector)}(a)}};
