@@ -1,0 +1,32 @@
+.rem(@property,@sizeValues) {
+  @propertyRem: ~'/*rem*/'@property;
+  .pxtoremloop();
+  .pxtoremloop(@amount : length(@sizeValues), @i : 1) when (@i =< @amount){
+    @sizeValue: extract(@sizeValues, @i);
+    & when (iskeyword(@sizeValue)) {
+      @remValue : @sizeValue;
+      @{propertyRem}+_ : ~"@{remValue}";
+    }
+    & when not (iskeyword(@sizeValue)) {
+      @remValue : @sizeValue / @baseFont;
+      & when not (@remValue = 0) {
+        @{propertyRem}+_ : ~"@{remValue}rem";
+      }
+      & when (@remValue = 0) {
+        @{propertyRem}+_ : @remValue;
+      }
+    }
+    .pxtoremloop(@amount, (@i + 1));
+  }
+}
+
+.i-box-sizing {
+  box-sizing: border-box;
+}
+
+.i-input-reset {
+  border : none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+}
