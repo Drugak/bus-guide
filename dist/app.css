@@ -91,6 +91,17 @@ select {
   outline: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
+  /*rem*/ padding: 0.625rem;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-bottom-color: #6a6a6a;
+}
+.i-vertical-aligment:after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  margin-left: -0.4em;
+  vertical-align: middle;
 }
 header {
   /*rem*/ height: 1.875rem;
@@ -119,4 +130,22 @@ header:before {
 }
 .bus-guide_search-input {
   width: 100%;
+}
+.bus-guide_bus-list {
+  display: block;
+  /*rem*/ margin-top: 1.25rem;
+}
+.bus-guide_bus-list__item___number {
+  background-color: #5C832F;
+  color: #fff;
+  /*rem*/ width: 3.125rem;
+  /*rem*/ height: 3.125rem;
+  display: block;
+}
+.bus-guide_bus-list__item___number:after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  margin-left: -0.4em;
+  vertical-align: middle;
 }
