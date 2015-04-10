@@ -30,19 +30,19 @@ gulp.task('less', function() {
 });
 
 gulp.task('compress', function() {
-    return gulp.src('src/js/*.js')
+    return gulp.src(['src/js/**/*.js','src/js/*.js'])
         .pipe(uglify())
         .pipe(gulp.dest('dest/js'))
 });
 
 gulp.task('concatJS', function() {
-    return gulp.src('dest/js/*.js')
+    return gulp.src('dest/js/**/*.js')
         .pipe(concat('app.js'))
         .pipe(gulp.dest('dest/js'));
 });
 
 gulp.task('mr_Proper+Script', function () {
-    return gulp.src('dest/js/*.js', {read: false})
+    return gulp.src('dest/js/**/*.js', {read: false})
         .pipe(clean());
 });
 
