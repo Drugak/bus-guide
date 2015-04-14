@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean'),
     watch = require('gulp-watch'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    livereload = require('gulp-livereload');
 
 
 
@@ -20,7 +21,7 @@ var gulp = require('gulp'),
 // VARIABLES
 //======================================
 
-
+livereload({ start: true });
 
 
 // TASKS
@@ -30,12 +31,14 @@ gulp.task('less', function() {
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ],
         }))
+        .pipe(livereload())
         .pipe(gulp.dest('dest/css'));
 });
 
 gulp.task('compress', function() {
     return gulp.src(['src/js/**/*.js','src/js/*.js'])
         .pipe(uglify())
+        .pipe(livereload())
         .pipe(gulp.dest('dest/js'))
 });
 

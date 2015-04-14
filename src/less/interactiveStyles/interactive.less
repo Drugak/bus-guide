@@ -1,0 +1,43 @@
+// Flexible Box Layout
+
+.i-flex {
+  display: flex;
+  &-column{
+    display: flex;
+    flex-direction: column;
+  }
+  &-row {
+    display: flex;
+    flex-direction: row;
+  }
+  &-pease {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: flex-start;
+  }
+  &-center-v-h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+//Fonts style
+
+@fontSizeCount: 8;
+.fontSizeLoop (@i) when (@i > 0) {
+  @fontSizeCalc: @i + 10;
+  .i-font-s-@{fontSizeCalc} {
+    font-size: @fontSizeCalc~"rem";
+  }
+  .fontSizeLoop(@i - 2);
+}
+.fontSizeLoop(@fontSizeCount);
+
+
+// box shadow
+.i-box-shadow {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 3px 4px -3px rgba(0, 0, 0, 0.3);
+}

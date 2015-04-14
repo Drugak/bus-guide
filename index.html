@@ -9,98 +9,42 @@
         <link rel="stylesheet" href="dest/css/app.css">
         <script src="dest/js/app.js"></script>
     </head>
-    <body>
-        <div id="loading-page" class="loading-page">
-            <span>Ждем маршутос.....</span>
-        </div>
-        <header id="header" class="clr">
-            <!--<span class="left">назад</span>-->
-            <!--<span class="right">все маршруты</span>-->
-        </header>
-        <section>
-            <div id="result-page">
-                <div class="my-location i-none">
-                    Вознисенский периулок
+    <body class="i-flex-column">
+        <header id="header" class="header"></header>
+        <article class="main-page i-flex-column">
+            <h3 class="main-page_promo-text i-font-s-12">
+                Ниже приведен весь список маршруток города Одесса. <br/>
+                Ниже строка поиска. Впишите туда номер маршрутки.
+            </h3>
+            <section class="main-page_search-box">
+                <div class="component-search">
+                    <input type="text" class="component-search_input" placeholder="Поиск по номеру маршрутки" spellcheck="true"/>
                 </div>
-                <p class="promo-text">
-                    Ниже приведен весь список маршруток города Одесса. <br/>
-                    Ниже строка поиска. Впишите туда номер маршрутки.
-                </p>
-                <div data-type="text" class="search-box search-item">
-                    <input placeholder="Поиск номеру маршрутки" class="js-search-input" type="text"/>
-                    <div class="js-cancel-search cancel-search i-none">закрыть</div>
-                </div>
-                <ul id="list-bus" class="loading">
-
-                    <!-- отображение блока маршрутки в развернтом виде-->
-
-                    <!-- отображение блока маршрутки -->
-
+            </section>
+            <section class="main-page_list-bus-box">
+                <ul class="component-listBus">
+                    <li class="component-listBus_lis-item">
+                        <div class="item-header i-flex-pease">
+                            <var class="bus-number i-flex-center-v-h">2</var>
+                            <span class="bus-name">ул. Ак. Королева – Промрынок 7км</span>
+                        </div>
+                        <ul class="component-listBus_lis-item_info-list">
+                            <li class="info-list-item">
+                                <span class="info-title">Время работы</span>
+                                <span class="info-description">05:00 - 16:30</span>
+                            </li>
+                            <li class="info-list-item">
+                                <span class="info-title">Время работы</span>
+                                <span class="info-description">05:00 - 16:30</span>
+                            </li>
+                            <li class="info-list-item">
+                                <span class="info-title">Время работы</span>
+                                <span class="info-description">05:00 - 16:30</span>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-            </div>
-        </section>
-        <script type="text/jstemplate" id="template-busItemWidget">
-            <li data-flex-grow="3"  data-bus-number="<%= routeNumber%>" class="js-bus-item bus-item">
-                <var class="number-bus">
-                    <%= routeNumber%>
-                </var>
-                <div class="info-box">
-                    <div class="short-info" data-flex-grow="2">
-                        <!--<span class="from">Дерибасовская стрит</span>-->
-                        <!--<span class="to">Заболотного бичь</span>-->
-                        <span class="name"><%= routeName %></span>
-                    </div>
-                </div>
-                <div class="medium-info">
-                    <ul>
-                        <li>
-                                    <span class="info-title">
-                                        Время работы:
-                                    </span>
-                            <br/>
-                            <var class="info-list-item">
-                                <%= startRouteTime%> - <%= endRouteTime%>
-                            </var>
-                        </li>
-                        <li>
-                                    <span class="info-title">
-                                       Количество машин:
-                                    </span>
-                            <br/>
-                            <var class="info-list-item">
-                                <%= directTrips.workdays%> ( вых. <%= directTrips.weekdays%>)
-                            </var>
-                        </li>
-                        <li>
-                                    <span class="info-title">
-                                       Количество рейсов:
-                                    </span>
-                            <br/>
-                            <var class="info-list-item">
-                                <%= reverseTrips.workdays%> (вых.<%= reverseTrips.weekdays%>)
-                            </var>
-                        </li>
-                        <li>
-                                    <span class="info-title">
-                                       Длина рейса:
-                                    </span>
-                            <br/>
-                            <var class="info-list-item">
-                                <%= routeLengthInKM%>км
-                            </var>
-                        </li>
-                        <li>
-                                    <span class="info-title">
-                                       Время на один рейс:
-                                    </span>
-                            <br/>
-                            <var class="info-list-item">
-                                <%= routeDurationInMinutes%> мин
-                            </var>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </script>
+            </section>
+        </article>
     </body>
 </html>
