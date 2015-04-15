@@ -514,8 +514,25 @@ var {
 .component-listBus_lis-item .bus-name {
   padding: 1rem;
 }
+.component-listBus_lis-item.open .component-listBus_lis-item_info-list {
+  display: block;
+}
 .component-listBus_lis-item_info-list {
+  padding: 0 1rem;
   display: none;
+}
+.component-listBus_lis-item_info-list .info-list-item {
+  display: block;
+  margin: .5rem 0;
+}
+.component-listBus_lis-item_info-list .info-list-item .info-title {
+  display: block;
+  color: #000000;
+}
+.component-listBus_lis-item_info-list .info-list-item .info-description {
+  display: block;
+  color: rgba(0, 0, 0, 0.55);
+  padding-left: .6rem;
 }
 .main-page {
   overflow: hidden;

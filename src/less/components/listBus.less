@@ -1,5 +1,6 @@
 .component-listBus {
   &_lis-item {
+
     .i-box-shadow;
     background-color: white;
     margin-bottom: .5rem;
@@ -16,8 +17,27 @@
         padding: 1rem;
       }
     }
+    &.open &_info-list {
+      display: block;
+    }
     &_info-list {
+      padding: 0 1rem;
       display: none;
+      .info-list-item {
+        display: block;
+        margin: .5rem 0;
+        .info {
+          &-title {
+            display: block;
+            color:#000000;
+          }
+          &-description {
+            display: block;
+            color: rgba(0, 0, 0, 0.55);
+            padding-left: .6rem;
+          }
+        }
+      }
     }
   }
 }
