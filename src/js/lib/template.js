@@ -18,11 +18,11 @@
      * Regards.  
      */
     ;(function theTemplateCore($) {
-       Bus = typeof Bus == "undefined" ? {} : Bus;
+       BUS = typeof BUS == "undefined" ? {} : BUS;
 
 
         var cache = {};
-       Bus.template = function template(str, data, plain_html) {
+       BUS.template = function template(str, data, plain_html) {
         // Figure out if we're getting a template, or if we need to
         // load the template - and be sure to cache the result.
         var fn = !/\W/.test(str)
