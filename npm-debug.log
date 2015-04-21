@@ -1,0 +1,108 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'search', 'drugak' ]
+2 info using npm@2.7.5
+3 info using node@v0.12.2
+4 verbose config Skipping project config: /Users/Noxval/.npmrc. (matches userconfig)
+5 silly mapToRegistry name -/all
+6 silly mapToRegistry using default registry
+7 silly mapToRegistry registry https://registry.npmjs.org/
+8 silly mapToRegistry uri https://registry.npmjs.org/-/all
+9 info updateIndex /Users/Noxval/.npm/registry.npmjs.org/-/all/.cache.json
+10 warn Building the local index for the first time, please be patient
+11 silly update-index fetching https://registry.npmjs.org/-/all
+12 verbose request uri https://registry.npmjs.org/-/all
+13 verbose request no auth needed
+14 info attempt registry request try #1 at 4:48:18 PM
+15 verbose request id fdb923faa7934665
+16 http request GET https://registry.npmjs.org/-/all
+17 info retry will retry, error on last attempt: Error: socket hang up
+18 info attempt registry request try #2 at 4:50:11 PM
+19 http request GET https://registry.npmjs.org/-/all
+20 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+21 info attempt registry request try #3 at 8:57:53 PM
+22 http request GET https://registry.npmjs.org/-/all
+23 http 503 https://registry.npmjs.org/-/all
+24 verbose bad json <?xml version="1.0" encoding="utf-8"?>
+24 verbose bad json <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+24 verbose bad json  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+24 verbose bad json <html>
+24 verbose bad json   <head>
+24 verbose bad json     <title>503 backend read error</title>
+24 verbose bad json   </head>
+24 verbose bad json   <body>
+24 verbose bad json     <h1>Error 503 backend read error</h1>
+24 verbose bad json     <p>backend read error</p>
+24 verbose bad json     <h3>Guru Mediation:</h3>
+24 verbose bad json     <p>Details: cache-fra1248-FRA 1429379934 2567278123</p>
+24 verbose bad json     <hr>
+24 verbose bad json     <p>Varnish cache server</p>
+24 verbose bad json   </body>
+24 verbose bad json </html>
+25 error registry error parsing json
+26 verbose headers { date: 'Sat, 18 Apr 2015 17:58:54 GMT',
+26 verbose headers   server: 'Varnish',
+26 verbose headers   'retry-after': '0',
+26 verbose headers   'content-type': 'text/html; charset=utf-8',
+26 verbose headers   'content-length': '448',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   'x-served-by': 'cache-fra1248-FRA',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1429379874.330617,VS0,VE59999',
+26 verbose headers   connection: 'close' }
+27 verbose stack SyntaxError: Unexpected token <
+27 verbose stack
+27 verbose stack <?xml version="1.0" encoding="utf-8"?>
+27 verbose stack <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+27 verbose stack  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+27 verbose stack <html>
+27 verbose stack   <head>
+27 verbose stack     <title>503 backend read error</title>
+27 verbose stack   </head>
+27 verbose stack   <body>
+27 verbose stack     <h1>Error 503 backend read error</h1>
+27 verbose stack     <p>backend read error</p>
+27 verbose stack     <h3>Guru Mediation:</h3>
+27 verbose stack     <p>Details: cache-fra1248-FRA 1429379934 2567278123</p>
+27 verbose stack     <hr>
+27 verbose stack     <p>Varnish cache server</p>
+27 verbose stack   </body>
+27 verbose stack </html>
+27 verbose stack
+27 verbose stack     at Object.parse (native)
+27 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:197:23)
+27 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+27 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:360:22)
+27 verbose stack     at Request.emit (events.js:110:17)
+27 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1202:14)
+27 verbose stack     at Request.emit (events.js:129:20)
+27 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1150:12)
+27 verbose stack     at IncomingMessage.emit (events.js:129:20)
+27 verbose stack     at _stream_readable.js:908:16
+28 verbose cwd /Users/Noxval/Documents/bus-guide
+29 error Darwin 14.3.0
+30 error argv "node" "/usr/local/bin/npm" "search" "drugak"
+31 error node v0.12.2
+32 error npm  v2.7.5
+33 error Unexpected token <
+33 error
+33 error <?xml version="1.0" encoding="utf-8"?>
+33 error <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+33 error  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+33 error <html>
+33 error   <head>
+33 error     <title>503 backend read error</title>
+33 error   </head>
+33 error   <body>
+33 error     <h1>Error 503 backend read error</h1>
+33 error     <p>backend read error</p>
+33 error     <h3>Guru Mediation:</h3>
+33 error     <p>Details: cache-fra1248-FRA 1429379934 2567278123</p>
+33 error     <hr>
+33 error     <p>Varnish cache server</p>
+33 error   </body>
+33 error </html>
+34 error If you need help, you may report this error at:
+34 error     <https://github.com/npm/npm/issues>
+35 verbose exit [ 1, true ]

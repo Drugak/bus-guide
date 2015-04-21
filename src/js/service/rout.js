@@ -171,6 +171,9 @@
         };
 
         return {
+            test: function(){
+                console.log('flsadhjflsdfllakfjlds');
+            },
             /**
              *
              * @param route
@@ -289,3 +292,5 @@
             }
         }
     };
+BUS.router();
+

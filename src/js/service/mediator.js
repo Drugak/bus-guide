@@ -11,7 +11,7 @@
 
 "use strict"
 
-BUS.mediator = (function() {
+BUS.servicesFunctionality.services('mediator', function() {
     var listen = function (channel,fn) {
             if(!mediator.channels[channel])
                 mediator.channels[channel] = [];
@@ -46,4 +46,4 @@ BUS.mediator = (function() {
             obj.publish = publish;
         }
     };
-}());
+});
