@@ -21,6 +21,7 @@ BUS.servicesFunctionality.services('storage' , function () {
         },
         clearAll: function () {
             localStorage.clear();
+            console.log('clear all storage');
         }
     }
 });

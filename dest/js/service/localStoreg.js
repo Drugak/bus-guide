@@ -1,0 +1,1 @@
+BUS.servicesFunctionality.services("storage",function(){return{push:function(e,o){try{localStorage.setItem(e,o)}catch(t){t==QUOTA_EXCEEDED_ERR&&console.log("Локальное хранилище переполнено")}},get:function(e){localStorage.getItem(e)},clear:function(e){localStorage.removeItem(e)},clearAll:function(){localStorage.clear(),console.log("clear all storage")}}});
