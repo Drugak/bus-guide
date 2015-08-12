@@ -28,28 +28,29 @@ gulp.task('less', function() {
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ],
         }))
-        .pipe(gulp.dest('dest/css'));
+        .pipe(gulp.dest('wwwroot/css'));
 });
+
 
 gulp.task('compress', function() {
     return gulp.src(['src/js/**/*.js','src/js/*.js'])
         .pipe(uglify())
-        .pipe(gulp.dest('dest/js'))
+        .pipe(gulp.dest('wwwroot/js'))
 });
 
 gulp.task('concatJS', function() {
-    return gulp.src('dest/js/**/*.js')
+    return gulp.src('wwwroot/js/**/*.js')
         .pipe(concat('app.js'))
-        .pipe(gulp.dest('dest/js'));
+        .pipe(gulp.dest('wwwroot/js'));
 });
 
 gulp.task('mr_Proper+Script', function () {
-    return gulp.src('dest/js/**/*.js', {read: false})
+    return gulp.src('wwwroot/js/**/*.js', {read: false})
         .pipe(clean());
 });
 
 gulp.task('mr_Proper+Css', function () {
-    return gulp.src('dest/css/*.css', {read: false})
+    return gulp.src('wwwroot/css/*.css', {read: false})
         .pipe(clean());
 });
 
@@ -75,4 +76,4 @@ gulp.task('mr_Holms+JS' , function () {
 });
 
 gulp.task('mr_Proper',['mr_Proper+Css', 'mr_Proper+Script'], function() {});
-gulp.task('bildTask', ['less', 'compress', 'concatJS'] , function (){});
+gulp.task('bildTask', ['mr_Holms+Css_tools', 'mr_Holms+JS_tools'] , function (){});

@@ -1,0 +1,1 @@
+"use strict";BUS.servicesFunctionality.pages("busInfo_Page",["storage","mediator"],function(e,t){this._storage=e,this._mediator=t,console.log(_storage,_mediator),_storage.clearAll()});
